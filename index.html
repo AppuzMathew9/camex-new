@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#070b12" name="theme-color"/>
+<meta content="Camex turns existing CCTV cameras into real-time operational intelligence." name="description"/>
+<title>Camex — See more. Know sooner. Do more.</title>
+<link href="https://images.unsplash.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css?v=usecase-v33" rel="stylesheet"/>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<div aria-label="Loading Camex experience" class="camex-loader" id="camex-loader">
+<canvas aria-hidden="true" id="camex-3d-canvas"></canvas>
+<canvas aria-hidden="true" id="camex-fallback-canvas"></canvas>
+<div aria-hidden="true" class="camex-3d-vignette"></div>
+<div aria-label="CAMEX" class="camex-3d-brand">CAMEX<span>.</span></div>
+<div aria-hidden="true" class="camex-3d-reticle"><i></i></div>
+<div aria-hidden="true" class="camex-3d-notice"><i></i><span></span><span></span></div>
+<div aria-live="polite" class="camex-model-load-status" id="camex-model-load-status">
+<span id="camex-model-load-label">INITIALIZING AI MODEL</span>
+<strong id="camex-model-load-percent">03%</strong>
+</div>
+<div class="camex-3d-progress"><i id="loader-progress-fill"></i></div>
+</div>
+<!-- Transition bridge: the loader aisle sequence hands off to this supplied video. -->
+<div aria-hidden="true" class="camex-flow-transition" data-cut-at="7.25" id="camex-flow-transition">
+<video disablepictureinpicture="" id="camex-flow-video" muted="" playsinline="" preload="metadata">
+<source src="assets/video/all.mp4" type="video/mp4"/>
+</video>
+<div aria-hidden="true" class="camex-flow-vignette"></div>
+</div>
+<div aria-hidden="true" class="cursor-glow"></div>
+<div aria-hidden="true" class="noise"></div>
+<header class="site-header">
+<a aria-label="Camex home" class="brand" href="#top"><span class="brand-mark">C</span><span>CAMEX<span class="brand-dot">.</span></span></a>
+<nav aria-label="Main navigation" class="desktop-nav">
+<a href="index.html#top">Home</a><a href="case-study.html">Case Study</a><a href="developer-docs.html">Developer Docs</a><a href="pricing.html">Pricing</a>
+</nav>
+<div class="header-actions"><a class="text-link" href="#platform">Explore platform <span>↗</span></a><a class="button button-small" href="#contact">Book a demo <span>↗</span></a><button aria-expanded="false" aria-label="Open navigation" class="menu-toggle"><span></span><span></span></button></div>
+</header>
+<main id="top">
+<section aria-label="Camex cinematic introduction" class="cinematic-journey" data-cinematic="" id="main-content" tabindex="-1">
+<div class="cinematic-pin">
+<div class="cinematic-media" id="cinematic-media">
+<video autoplay="" class="cinematic-video" id="hero-video" loop="" muted="" playsinline="" poster="" preload="metadata">
+<source src="assets/video/perimeter-driveway.mp4" type="video/mp4"/>
+</video><canvas aria-label="Live object detections from the video" class="actual-detections" id="hero-detections"></canvas>
+<div class="cinematic-grade"></div>
+<div class="cinematic-grain"></div>
+<div aria-hidden="true" class="camera-frame"><i class="frame-corner tl"></i><i class="frame-corner tr"></i><i class="frame-corner bl"></i><i class="frame-corner br"></i></div>
+<div class="camera-meta meta-top"><span class="live-indicator"><i></i> LOCAL VIDEO / OBJECT
+              MODEL</span><span>SUPPLIED CCTV FOOTAGE</span><span class="mono">LIVE MODEL INFERENCE</span></div>
+<div class="cinematic-copy" id="cinematic-copy">
+<div class="eyebrow"><span class="eyebrow-line"></span> YOUR CAMERAS. MORE CONTEXT.</div>
+<h1>See the scene.<br/>Understand <span>the signal.</span></h1>
+<p>Camex turns existing camera footage into useful operational intelligence—so your team can act with
+              clarity, not guesswork.</p>
+<div class="hero-actions"><a class="button" href="#contact">Book a live demo <span>↗</span></a><a class="button button-ghost" href="#camera-story">See how it works <span>↓</span></a></div>
+</div>
+<div class="cinematic-caption"><span class="caption-dot"></span><span id="cinematic-state">NATURAL
+              SCENE</span><span class="caption-divider"></span><span>MODEL-BASED DETECTION</span></div>
+<div class="scroll-cue"><span class="scroll-cue-line"></span><span>SCROLL TO REVEAL</span><span class="mono" id="scroll-percent">00%</span></div>
+</div>
+</div>
+</section>
+<section aria-label="Platform capabilities" class="proof-strip section-shell">
+<div class="proof-intro"><span class="eyebrow">BUILT FOR OPERATIONS</span>
+<p>One view of what matters.<br/><span>Across every camera.</span></p>
+</div>
+<div class="proof-metric"><strong>01<span>.</span></strong><span>Detect what<br/>others miss</span></div>
+<div class="proof-metric"><strong>02<span>.</span></strong><span>Understand what<br/>is happening</span></div>
+<div class="proof-metric"><strong>03<span>.</span></strong><span>Act while it<br/>still matters</span></div>
+<div class="proof-note"><span class="live-indicator"><i></i> ALWAYS ON</span>
+<p>Designed to work with compatible existing IP cameras. Actual performance depends on configuration and
+          deployment.</p>
+</div>
+</section>
+<section aria-labelledby="camera-story-title" class="camera-story" data-camera-story="" id="camera-story">
+<div class="camera-story-pin">
+<div class="camera-story-heading">
+<div class="eyebrow"><span class="eyebrow-line"></span> FROM VIDEO TO DECISION</div><span class="story-counter mono"><b id="story-step-number">01</b> / 04</span>
+</div>
+<div class="camera-story-layout">
+<div aria-live="polite" class="camera-story-copy">
+<div class="story-kicker" id="story-kicker">STEP 01 · OBSERVE</div>
+<h2 id="camera-story-title">It starts with<br/><span>what happens.</span></h2>
+<p id="camera-story-description">People move through your spaces every day. Camex begins with the camera feeds you already have.</p>
+</div>
+<div class="camera-story-media-layout">
+<div class="camera-story-screen" id="camera-story-screen">
+<video id="story-video" loop="" muted="" playsinline="" poster="" preload="metadata">
+<source src="assets/video/overhead-crowd.mp4" type="video/mp4"/>
+</video><canvas aria-label="Model detections from the video" class="actual-detections" id="story-detections"></canvas>
+<div class="story-screen-grade"></div>
+<div class="story-screen-grid"></div>
+<div class="story-screen-meta"><span class="live-indicator"><i></i> CAMERA 04 / ATRIUM</span><span class="mono">SCENE <b id="story-scene-state">RAW FOOTAGE</b></span></div>
+<div class="story-scrub"><span>SCROLL PROGRESS</span>
+<div class="story-scrub-track"><i id="story-scrub-fill"></i></div><span class="mono" id="story-scrub-percent">00%</span>
+</div>
+</div>
+<div aria-atomic="true" aria-live="polite" class="story-voice-caption">
+<span class="story-voice-label mono">CAMEX / PIPELINE</span>
+<p id="story-voice-text">First, observe the scene. Camex works with the camera feeds already in place.</p>
+</div>
+<div aria-label="Story stages" class="story-progress-list" role="list">
+<div class="story-progress-item active" data-story-step="0"><span>01</span><b>Observe the scene</b><i></i></div>
+<div class="story-progress-item" data-story-step="1"><span>02</span><b>Detect objects</b><i></i></div>
+<div class="story-progress-item" data-story-step="2"><span>03</span><b>Understand movement</b><i></i></div>
+<div class="story-progress-item" data-story-step="3"><span>04</span><b>Surface an insight</b><i></i></div>
+</div>
+</div>
+</div>
+<div class="camera-story-foot"><span>SCROLL TO MOVE THROUGH THE PIPELINE</span><span>OBSERVE <i>→</i> DETECT
+            <i>→</i> INTERPRET <i>→</i> ACT</span></div>
+</div>
+</section>
+<section aria-labelledby="feed-wall-title" class="feed-wall-section section-shell section-pad" id="feed-wall">
+<div class="section-heading">
+<div>
+<div class="eyebrow"><span class="eyebrow-line"></span> CAMEX SOURCE LIBRARY</div>
+<h2 id="feed-wall-title">Every feed.<br/><span>One wall.</span></h2>
+</div>
+<div class="feed-wall-intro">
+<p>Browse the available Camex camera clips. Feeds load as you approach them to reduce bandwidth and keep
+            playback responsive.</p>
+<button aria-controls="feed-wall-grid" aria-expanded="false" class="feed-wall-toggle" id="feed-wall-toggle" type="button">
+<span>SHOW ALL FEEDS</span><b aria-hidden="true">＋</b>
+</button>
+</div>
+</div>
+<div class="feed-wall-toolbar"><span><i class="feed-wall-dot"></i> 28 SOURCE FEEDS</span><span class="mono">VIDEO
+          PLAYBACK · LAZY LOADED</span></div>
+<div aria-live="polite" class="feed-wall-grid" id="feed-wall-grid"></div>
+<p class="feed-wall-note">These are video files served by the public Camex site, not guaranteed live camera
+        streams. Availability depends on the source server.</p>
+</section>
+<section class="live-section section-shell section-pad" id="live-demo">
+<div class="section-heading">
+<div>
+<div class="eyebrow"><span class="eyebrow-line"></span> NOT JUST VIDEO. CONTEXT.</div>
+<h2>Every camera has<br/>a <span>story to tell.</span></h2>
+</div>
+<p>Explore how a familiar camera feed becomes useful operational intelligence. Switch scenarios to see the
+          signals that matter.</p>
+</div>
+<div class="usecase-intro">
+<div><span class="eyebrow-line"></span><span class="mono">ONE CAMERA NETWORK · MULTIPLE OPERATIONS</span></div>
+<p>Choose a scenario to change the footage and inspect the operational signal. Select one; the other options stay compact.</p>
+</div>
+<div class="demo-layout">
+<div class="demo-feed-column">
+<div class="demo-screen" id="demo-screen">
+<div class="demo-screen-image" id="demo-image"></div><video class="demo-screen-video" id="demo-video" loop="" muted="" playsinline="" poster="https://images.pexels.com/photos/264636/pexels-photo-264636.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" preload="none"></video><canvas aria-label="Model detections from the selected video" class="actual-detections" id="demo-detections"></canvas>
+<div class="demo-grid"></div>
+<div class="demo-screen-top"><span class="live-indicator"><i></i> VIDEO ANALYSIS</span><span class="mono" id="camera-name">CONSTRUCTION / SITE 01</span></div>
+<div class="demo-screen-bottom"><span>CAM-04 / 1080P</span><span>AI MODEL: <b id="model-name">PPE &amp; SAFETY WORKFLOW</b></span><span class="mono">14:28:06</span></div>
+</div>
+<div class="insight-panel">
+<div class="insight-head"><span>DETECTED INSIGHTS</span><span class="pulse-dot"></span></div>
+<div class="insight-row"><span class="insight-icon blue">◎</span>
+<div><strong id="model-result-title">Make site safety easier to review</strong><span id="model-result-desc">Use construction footage to illustrate where PPE analytics can fit. Helmet, vest and compliance checks need a dedicated compatible model.</span></div><span class="insight-status" id="model-result-status">MODEL REQUIRED</span>
+</div>
+<p class="simulation-note" id="model-status-note">Object boxes and labels are drawn only from model
+              predictions. No pose or event inference is simulated.</p>
+</div>
+</div>
+<div class="demo-side">
+<div class="scenario-group-heading">
+<div><span class="eyebrow-line"></span><span>ANALYTICS SCENARIOS</span></div>
+<span>SELECT A USE CASE TO LOAD ITS FEED</span>
+</div>
+<div aria-label="Camex analytics use cases" class="usecase-grid">
+<article class="usecase-card active" data-scene="ppe"><span class="usecase-index">01 / SAFETY</span><h3>PPE &amp; site safety</h3><p>Flag configured PPE or safety-zone events on construction and industrial sites.</p><div class="usecase-outcome"><b>Business impact</b><span>Faster review of potential safety incidents and more consistent site oversight.</span></div><button aria-pressed="true" class="usecase-try" data-scene="ppe" type="button">View footage <span>↗</span></button></article>
+<article class="usecase-card" data-scene="motion"><span class="usecase-index">02 / OPERATIONS</span><h3>Motion detection</h3><p>Identify movement in monitored areas and review activity across shifts or after hours.</p><div class="usecase-outcome"><b>Business impact</b><span>Less manual watching and quicker triage of relevant events.</span></div><button aria-pressed="false" class="usecase-try" data-scene="motion" type="button">View footage <span>↗</span></button></article>
+<article class="usecase-card" data-scene="headcount"><span class="usecase-index">03 / RETAIL &amp; VENUES</span><h3>Headcount &amp; occupancy</h3><p>Estimate footfall and movement through entrances, aisles and public spaces.</p><div class="usecase-outcome"><b>Business impact</b><span>Better staffing decisions, queue planning and space utilization.</span></div><button aria-pressed="false" class="usecase-try" data-scene="headcount" type="button">View footage <span>↗</span></button></article>
+<article class="usecase-card" data-scene="employee"><span class="usecase-index">04 / WORKPLACES</span><h3>Employee operations</h3><p>Understand area utilization and workflow patterns without treating video as a substitute for HR systems.</p><div class="usecase-outcome"><b>Business impact</b><span>Improve shift planning and spot process bottlenecks with appropriate privacy controls.</span></div><button aria-pressed="false" class="usecase-try" data-scene="employee" type="button">View footage <span>↗</span></button></article>
+<article class="usecase-card" data-scene="restricted"><span class="usecase-index">05 / SECURITY</span><h3>Restricted-zone access</h3><p>Review entry into configured sensitive zones and routes around gates or perimeters.</p><div class="usecase-outcome"><b>Business impact</b><span>Support faster incident review and clearer perimeter awareness.</span></div><button aria-pressed="false" class="usecase-try" data-scene="restricted" type="button">View footage <span>↗</span></button></article>
+<article class="usecase-card" data-scene="heatmap"><span class="usecase-index">06 / SPACE PLANNING</span><h3>Heat maps &amp; movement</h3><p>Summarize where activity concentrates across a floor, queue or shared space.</p><div class="usecase-outcome"><b>Business impact</b><span>Inform layouts, staffing and congestion reduction using aggregated patterns.</span></div><button aria-pressed="false" class="usecase-try" data-scene="heatmap" type="button">View footage <span>↗</span></button></article>
+<article class="usecase-card" data-scene="theft"><span class="usecase-index">07 / LOSS PREVENTION</span><h3>Theft detection &amp; review</h3><p>Use footage to help investigators locate and review suspicious incidents; event detection requires a configured model.</p><div class="usecase-outcome"><b>Business impact</b><span>Reduce search time when investigating incidents and exceptions.</span></div><button aria-pressed="false" class="usecase-try" data-scene="theft" type="button">View footage <span>↗</span></button></article>
+<article class="usecase-card" data-scene="anpr"><span class="usecase-index">08 / TRANSPORT</span><h3>ANPR &amp; vehicle access</h3><p>Apply compatible number-plate recognition to vehicle entry workflows where supported.</p><div class="usecase-outcome"><b>Business impact</b><span>Speed up vehicle checks, access logs and parking operations.</span></div><button aria-pressed="false" class="usecase-try" data-scene="anpr" type="button">View footage <span>↗</span></button></article>
+<article class="usecase-card" data-scene="traffic"><span class="usecase-index">09 / ROADS &amp; FLEETS</span><h3>Traffic violations</h3><p>Review road footage for configured events such as wrong-way movement or restricted-lane use.</p><div class="usecase-outcome"><b>Business impact</b><span>Prioritize review of road events and improve fleet or site traffic oversight.</span></div><button aria-pressed="false" class="usecase-try" data-scene="traffic" type="button">View footage <span>↗</span></button></article>
+</div>
+</div>
+</div>
+<p class="usecase-disclaimer">These are deployment use cases, not claims that every model is enabled in this page demo. The live preview uses the supplied video clips; PPE verification, ANPR, heat-map generation, employee workflows and violation classification require compatible analytics, configuration, and deployment validation.</p>
+</section>
+<section class="industries-section section-shell section-pad" id="industries">
+<div class="section-heading">
+<div>
+<div class="eyebrow"><span class="eyebrow-line"></span> ONE PLATFORM. MANY REALITIES.</div>
+<h2>Built for the<br/><span>world you run.</span></h2>
+</div>
+<p>Different environments create different risks. Configure analytics around the moments that matter to your
+          team.</p>
+</div>
+<div class="industry-grid"><a class="industry-card industry-retail" href="#contact">
+<div class="industry-photo"></div>
+<div class="industry-content"><span class="industry-number">01 / COMMERCE</span>
+<h3>Retail &amp; stores</h3>
+<p>Understand footfall, queues and customer movement to help improve day-to-day operations.</p><span class="industry-link">Explore use case <b>↗</b></span>
+</div>
+</a><a class="industry-card industry-health" href="#contact">
+<div class="industry-photo"></div>
+<div class="industry-content"><span class="industry-number">02 / HEALTHCARE</span>
+<h3>Healthcare</h3>
+<p>Monitor configured zones, crowd activity and operational safety across facilities.</p><span class="industry-link">Explore use case <b>↗</b></span>
+</div>
+</a><a class="industry-card industry-warehouse" href="#contact">
+<div class="industry-photo"></div>
+<div class="industry-content"><span class="industry-number">03 / LOGISTICS</span>
+<h3>Warehousing &amp; logistics</h3>
+<p>Surface safety events and movement patterns in busy operational environments.</p><span class="industry-link">Explore use case <b>↗</b></span>
+</div>
+</a><a class="industry-card industry-city" href="#contact">
+<div class="industry-photo"></div>
+<div class="industry-content"><span class="industry-number">04 / INFRASTRUCTURE</span>
+<h3>Sites &amp; public spaces</h3>
+<p>Support perimeter awareness and configured restricted-zone alerts.</p><span class="industry-link">Explore
+              use case <b>↗</b></span>
+</div>
+</a></div>
+</section>
+
+
+<section aria-labelledby="trust-ecosystem-title" class="trust-ecosystem section-shell" id="cloud-ecosystem">
+<div class="trust-ecosystem-heading">
+<div class="eyebrow"><span class="eyebrow-line"></span> INFRASTRUCTURE &amp; ECOSYSTEM</div>
+<h2 id="trust-ecosystem-title">Built to fit your <span>existing ecosystem.</span></h2>
+<p>Cloud infrastructure and ecosystem names shown on the current Camex website.</p>
+</div>
+<div class="trust-ecosystem-content">
+<div aria-label="Cloud infrastructure providers" class="trust-row trust-marquee-row">
+<span class="trust-row-label">CLOUD</span>
+<div class="trust-marquee" data-marquee="">
+<div class="trust-marquee-track">
+<div class="trust-logo-set">
+<span class="trust-logo trust-google">Google <b>Cloud</b></span>
+<span class="trust-logo trust-huawei">HUAWEI</span>
+<span class="trust-logo trust-aws">aws<span class="aws-smile">⌣</span></span>
+<span class="trust-logo trust-oracle">ORACLE <b>CLOUD</b></span>
+<span class="trust-logo trust-azure">▲ Azure</span>
+<span class="trust-logo trust-alibaba">◈ Alibaba Cloud</span>
+<span class="trust-logo trust-2crsi">2CRSI</span>
+</div>
+<div aria-hidden="true" class="trust-logo-set">
+<span class="trust-logo trust-google">Google <b>Cloud</b></span>
+<span class="trust-logo trust-huawei">HUAWEI</span>
+<span class="trust-logo trust-aws">aws<span class="aws-smile">⌣</span></span>
+<span class="trust-logo trust-oracle">ORACLE <b>CLOUD</b></span>
+<span class="trust-logo trust-azure">▲ Azure</span>
+<span class="trust-logo trust-alibaba">◈ Alibaba Cloud</span>
+<span class="trust-logo trust-2crsi">2CRSI</span>
+</div>
+</div>
+</div>
+</div>
+<div aria-label="Camex partners" class="trust-row trust-marquee-row">
+<span class="trust-row-label">PARTNERS</span>
+<div class="trust-marquee trust-marquee-partners" data-marquee="">
+<div class="trust-marquee-track">
+<div class="trust-logo-set">
+<span class="trust-logo trust-dezzex">Dezzex</span>
+<span class="trust-logo trust-opden">Opden Tec</span>
+<span class="trust-logo trust-gulf">GULF <small>Edge</small></span>
+<span class="trust-logo trust-mi">mi</span>
+<span class="trust-logo trust-sms">◉ SMS</span>
+</div>
+<div aria-hidden="true" class="trust-logo-set">
+<span class="trust-logo trust-dezzex">Dezzex</span>
+<span class="trust-logo trust-opden">Opden Tec</span>
+<span class="trust-logo trust-gulf">GULF <small>Edge</small></span>
+<span class="trust-logo trust-mi">mi</span>
+<span class="trust-logo trust-sms">◉ SMS</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section class="faq-section section-shell section-pad">
+<div class="faq-intro">
+<div class="eyebrow"><span class="eyebrow-line"></span> GOOD TO KNOW</div>
+<h2>Questions before<br><span>the first call.</span></br></h2>
+<p>Some practical things teams typically want to understand.</p>
+</div>
+<div class="faq-list">
+<details>
+<summary>Do we need to replace our existing cameras?<span>+</span></summary>
+<p>Not necessarily. Camex describes support for compatible existing IP camera infrastructure. Camera models,
+            stream access and deployment requirements should be checked before implementation.</p>
+</details>
+<details>
+<summary>What kinds of events can AI detect?<span>+</span></summary>
+<p>Capabilities depend on the configured models and deployment. The current product materials describe use
+            cases including people counting, queue monitoring, zone alerts and selected safety analytics.</p>
+</details>
+<details>
+<summary>Can Camex connect to our existing systems?<span>+</span></summary>
+<p>The developer materials describe API and integration options. The right approach depends on your systems,
+            event requirements and technical environment.</p>
+</details>
+<details>
+<summary>How is camera footage handled?<span>+</span></summary>
+<p>Data handling, retention, access controls and deployment architecture should be confirmed with the Camex
+            team for your specific setup. Avoid assuming a particular privacy configuration without technical
+            confirmation.</p>
+</details>
+</div>
+</section><section aria-labelledby="next-step-title" class="next-step-band section-shell" id="pricing">
+<div class="next-step-copy">
+<div class="eyebrow"><span class="eyebrow-line"></span> START WITH ONE USE CASE</div>
+<h2 id="next-step-title">Make your cameras<br/><span>more useful.</span></h2>
+<p>Tell us what your team needs to detect, understand or improve. We can discuss camera compatibility and a practical starting point.</p>
+</div>
+<a aria-label="Discuss your Camex use case" class="button next-step-action glow-cta" href="mailto:sales@dezzex.com?subject=Camex%20AI%20Analytics%20Demo">
+<span>Discuss your use case</span>
+<svg aria-hidden="true" class="cta-arrow" focusable="false" height="18" viewbox="0 0 24 24" width="18">
+<path d="M5 12h13M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"></path>
+</svg>
+</a>
+</section>
+</main>
+<footer class="site-footer section-shell"><a class="brand" href="#top"><span class="brand-mark">C</span><span>CAMEX<span class="brand-dot">.</span></span></a><span class="footer-copy">A
+      concept redesign for Camex AI video analytics · browser-based object detection on supplied video clips.</span>
+<div class="footer-links"><a href="#platform">Platform</a><a href="developer-docs.html">Developer Docs</a><a href="case-study.html">Case Study</a><a href="pricing.html">Pricing</a><a href="mailto:sales@dezzex.com">Contact</a></div><span class="footer-copy">© 2026 · Design
+      concept</span>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.20.0/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.2.3/dist/coco-ssd.min.js"></script>
+<script src="script.js?v=cursor-glow-v59"></script>
+<!-- The primary script.js controller owns the loader and transition; avoid competing rescue timers. -->
+</body>
+</html>

@@ -1,0 +1,45 @@
+Camex local video assets — KEEP THIS LOCATION
+
+The website expects the original local video files in this exact folder:
+  camex-transition-rescue-v54/assets/video/
+
+Do not move these files into assets/, assets/videos/, or another directory.
+Copy your existing assets/video folder from:
+  Camex_Motion_Storytelling_Website/camex-redesign/assets/video/
+into this project, replacing/merging this placeholder folder.
+
+Expected filenames from the existing implementation include:
+- assets/video/all.mp4
+- assets/video/overhead-crowd.mp4
+- assets/video/perimeter-driveway.mp4
+- assets/video/canva-aisle-aside.mp4
+- assets/video/camex-canva-aisle-aside.mp4
+- assets/video/google-flow-transition.mp4
+- assets/video/kitchen_camera_feed.mp4
+- assets/video/construction_site_camera_feed.mp4
+- assets/video/workspace_camera_feed.mp4
+- assets/video/drone_camera_feed.mp4
+- assets/video/highway_camera_feed.mp4
+- assets/video/factory_camera_feed.mp4
+- assets/video/number_plate_dectection.mp4
+- assets/video/shopping_center_camera_feed.mp4
+- assets/video/people_detection_hero.mp4
+- assets/video/entry_exit_count.mp4
+- assets/video/theft_detection.mp4
+- assets/video/garden_camera_feed.mp4
+- assets/video/heat_sensor.mp4
+- assets/video/security-incident.mp4
+- assets/video/mixkit-security-camera-rotates-and-follow-the-object-48922-hd-ready.mp4
+- assets/video/retail-crowd.mp4
+- assets/video/mixkit-two-thieves-recorded-on-a-security-camera-31372-hd-ready.mp4
+- assets/video/camex-aisle-to-perimeter.mp4
+- assets/video/black_background_wall_fitted_camera.mp4
+- assets/video/car_pouch_camera_feed.mp4
+- assets/video/green_background_wall_fitted_camera.mp4
+- assets/video/mavic_4_pro_drone_camera.mp4
+- assets/video/people_waking_through_streets.mp4
+- assets/video/person_monitoring_camera.mp4
+- assets/video/subway_cam_feed.mp4
+- assets/video/train_cam_feed.mp4
+
+This archive contains the corrected folder structure and code, not the MP4 binaries. A screenshot of the folder cannot supply the video file contents.
